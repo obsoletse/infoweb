@@ -9,7 +9,18 @@ const routes = [
   { path:'/login', component: index},//登录
 
   //主页面模块
-  { path:'/home', component: () => import('@views/home/home')}
+  { path:'/home', component: () => import('@views/home/home'),
+  },
+  { path:'/My-information', component: () => import('@views/My/My-information'),
+  },
+  { path:'/My-oder', component: () => import('@views/My/My-oder'),
+  },
+  { path:'/My-wallet', component: () => import('@views/My/My-wallet'),
+  },
+  { path:'/massage', component: () => import('@views/My/massage'),
+  },
+  { path:'/help', component: () => import('@views/My/help'),
+  },
 ]
 
 const router = new VueRouter({

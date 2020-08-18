@@ -12,25 +12,61 @@
       {{ item.navItem }}
 
     </el-menu-item>
-    <a href="#nowhere" style="position: absolute;padding-top: 17px;right:2%;color: #222;">更多功能</a>
+
 
     <span style="position: absolute;padding-top: 20px;left: 7%;font-size: 20px;font-weight: bold">Your Mind Palace</span>
-      <div class="block" style="position: absolute;padding-top: 6px;left:3%"><el-avatar :size="45" :src="circleUrl"></el-avatar></div>
-      <div class="block" style="position: absolute;padding-top: 10px;right:7%"><el-avatar :size="40" :src="circleUrl"></el-avatar></div>
 
+      <div class="block" style="position: absolute;padding-top: 6px;left:3%"><el-avatar :size="45" :src="circleUrl"></el-avatar>
+      </div>
+      <el-dropdown @command="handleCommand" >
+          <div class="block" style="position: absolute;padding-top: 6px;left:3%" ><el-avatar :size="45" :src="circleUrl"></el-avatar></div>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="My-information">我的资料</el-dropdown-item>
+        <el-dropdown-item command="My-wallet">我的钱包</el-dropdown-item>
+        <el-dropdown-item command="My-order">我的订单</el-dropdown-item>
+        <el-dropdown-item command="massage" >消息</el-dropdown-item>
+        <el-dropdown-item command="help" >帮助</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </el-menu>
 </template>
 
 <script>
   export default {
     name: "home",
+    methods: {
+      handleCommand(command) {
+        if(command=='My-information')
+        {
+          this.$router.push('/My-information')
+        }
+        if(command=='My-wallet')
+        {
+          this.$router.push('/My-wallet')
+        }
+        if(command=='My-order')
+        {
+          this.$router.push('/My-order')
+        }
+        if(command=='massage')
+        {
+          this.$router.push('/massage')
+        }
+        if(command=='help')
+        {
+          this.$router.push('/help')
+        }
+      }
+
+    },
     data () {
+
       return {
         navList: [
-          {name: '/index', navItem: '消息中心'},
-          {name: '/jotter', navItem: '我的工作台'},
-          {name: '/library', navItem: '订单管理'},
-          {name: '/admin', navItem: '回到首页'}
+          {name: '/massage', navItem: '消息中心'},
+          {name: '/workbench', navItem: '我的工作台'},
+          {name: '/oder', navItem: '订单管理'},
+          {name: '/hall', navItem: '大厅'}
         ],
         circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
         squareUrl: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
@@ -48,3 +84,13 @@
     pointer-events: none;
   }
 </style>
+<style>
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+</style>
+
