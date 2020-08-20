@@ -1,45 +1,58 @@
 <template>
-  <div class="my">
-    <div class="background">
-      <img :src="imgSrc" width="100%" height="100%" alt=""/>
-    </div>
-    <div class="front" >
-      <el-row type="flex" justify="center" align="middle">
-        <el-col :span="8">
-          <div class="myFormHeader">
-            <el-card class="box-card">
-              <!--登录表单文字-->
-              <div slot="header" style="text-align: center">
-                <span>用户登录</span>
-              </div>
-              <el-form ref="loginForm" :model="form" label-width="80px" :rules="rules">
-                <el-form-item label="用户名" prop="username">
-                  <el-input v-model="form.username" clearable="true"></el-input>
-                </el-form-item>
-                <el-form-item label="密码" prop="password">
-                  <el-input type="password" v-model="form.password" clearable="true"></el-input>
-                </el-form-item>
-                <el-form-item style="margin-top: -10px">
-                  <el-col :span="8" style="font-size: 11px">
-                    <el-checkbox v-model="form.checked">记住密码</el-checkbox>
-                  </el-col>
-                  <el-col :span="16">
-                    <el-button type="text" style="float: right;margin-right: 100px;font-size: 11px">忘记密码?</el-button>
-                  </el-col>
-                </el-form-item>
-                <el-form-item style="margin-top: -15px">
-                    <el-col :span="12" style="text-align: center">
-                      <el-button type="primary" @click="onSubmit('loginForm')" size="small" round plain>登录</el-button>
+   <div class="my">
+      <div class="background">
+        <img :src="imgSrc" width="100%" height="100%" alt=""/>
+      </div>
+      <div class="front" >
+                <el-form class="login-container" ref="loginForm" :model="form"  :rules="rules" label-position="left" label-width="0px">
+                  <h3 class="login_title">用户登录</h3>
+                  <el-form-item  prop="username">
+                       <el-input v-model="form.username" clearable="true" auto-complete="off" placeholder="账号" ></el-input>
+                  </el-form-item>
+                  <el-form-item prop="password">
+                  <el-input type="password" v-model="form.password" clearable="true" auto-complete="off" placeholder="密码"></el-input>
+                  </el-form-item>
+                <el-form-item style="width: 100%">
+                  <el-row :gutter="20">
+                    <el-col :span="16">
+                      <el-checkbox v-model="form.checked">记住密码</el-checkbox>
                     </el-col>
-                    <el-col :span="6">
-                      <el-button size="small" round>取消</el-button>
+                    <el-col :span="8">
+                      <el-button type="text" style="float: right;margin-right: 100px;font-size: 11px">忘记密码?</el-button>
                     </el-col>
+                  </el-row>
                 </el-form-item>
-              </el-form>
-            </el-card>
-          </div>
-        </el-col>
-      </el-row>
+                  <el-form-item style="width: 100%">
+                     <el-button type="primary"  style="width: 100%;background: #505458;border: none" @click="onSubmit('loginForm')" >登录</el-button>
+                  </el-form-item>
+                </el-form>
+<!-
+
+<!--              <el-form ref="loginForm" :model="form" label-width="80px" :rules="rules">-->
+<!--                <el-form-item  prop="username">-->
+<!--                  <el-input v-model="form.username" clearable="true"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item  prop="password">-->
+<!--                  <el-input type="password" v-model="form.password" clearable="true"></el-input>-->
+<!--                </el-form-item>-->
+<!--                -->
+<!--                <el-form-item style="margin-top: -10px">-->
+<!--                  <el-col :span="8" style="font-size: 11px">-->
+<!--                    <el-checkbox v-model="form.checked">记住密码</el-checkbox>-->
+<!--                  </el-col>-->
+<!--                  <el-col :span="16">-->
+<!--                    <el-button type="text" style="float: right;margin-right: 100px;font-size: 11px">忘记密码?</el-button>-->
+<!--                  </el-col>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item style="margin-top: -15px">-->
+<!--                  <el-col :span="12" style="text-align: center">&ndash;&gt;-->
+<!--                      <el-button type="primary" @click="onSubmit('loginForm')" >登录</el-button>-->
+<!--                    </el-col>-->
+<!--                    <el-col :span="6">-->
+<!--                      <el-button size="small" round>取消</el-button>-->
+<!--                    </el-col>-->
+<!--                </el-form-item>-->
+<!--              </el-form>-->
     </div>
   </div>
 </template>
@@ -121,6 +134,23 @@
   .el-row{
     box-sizing: border-box;
     height: 100%;
+  }
+
+  .login-container {
+    border-radius: 15px;
+    background-clip: padding-box;
+    margin: 90px auto;
+    width: 350px;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px #cac6c6;
+  }
+
+  .login_title {
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
   }
   /*@import "./assets/css/main.css";*/
 </style>
