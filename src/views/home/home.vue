@@ -24,7 +24,10 @@
             <!--用户下拉菜单-->
             <div class="home_user_el_avatar">
                 <el-dropdown @command="handleCommand">
-                    <div><el-avatar :src="userImag"></el-avatar></div>
+                    <div>
+                        <el-avatar :src="userImag"></el-avatar>
+                        <span><i class="el-icon-arrow-down el-icon--right"></i></span>
+                    </div>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item command="userInfo">我的资料</el-dropdown-item>
                         <el-dropdown-item command="userWallet">我的钱包</el-dropdown-item>
@@ -71,7 +74,7 @@
                     {name: '/list', navItem: '排行榜'}
                 ],
                 iconImag: require('../../assets/logo.png'),
-                userImag: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+                userImag: require('../../assets/userAvatar.jpg'),
                 query: ''
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <h1>这里是消息中心</h1>
+    <h2>这里是消息中心</h2>
 </template>
 
 <script>
