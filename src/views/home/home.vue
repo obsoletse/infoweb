@@ -44,24 +44,19 @@
         name: "home",
         methods: {
             handleCommand(command) {
-                if(command=='userInfo')
-                {
+                if(command=='userInfo') {
                     this.$router.push('/userInfo')
                 }
-                if(command=='userWallet')
-                {
+                if(command=='userWallet') {
                     this.$router.push('/userWallet')
                 }
-                if(command=='userOrder')
-                {
+                if(command=='userOrder') {
                     this.$router.push('/userOrder')
                 }
-                if(command=='userMessage')
-                {
+                if(command=='userMessage') {
                     this.$router.push('/userMessage')
                 }
-                if(command=='help')
-                {
+                if(command=='help') {
                     this.$router.push('/help')
                 }
             }
@@ -78,10 +73,8 @@
                 iconImag: require('../../assets/logo.png'),
                 userImag: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
                 query: ''
-
-                }
             }
-
+        }
     }
 </script>
 
